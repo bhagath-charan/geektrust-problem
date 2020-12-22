@@ -1,0 +1,18 @@
+ADD_FAMILY_HEAD:King Shan:Male
+ADD_SPOUSE:King Shan:Queen Anga:Female
+ADD_CHILD:Queen Anga:Chit:Male
+ADD_CHILD:Queen Anga:Ish:Male
+ADD_CHILD:Queen Anga:Vich:Male
+ADD_CHILD:Queen Anga:Aras:Male
+ADD_CHILD:Queen Anga:Satya:Female
+ADD_SPOUSE:Chit:Amba:Female
+ADD_SPOUSE:Vich:lika:Female
+ADD_SPOUSE:Aras:Chitra:Female
+ADD_SPOUSE:Satya:Vyan:Male
+
+ADD_CHILD:Amba:Dritha:Female
+ADD_CHILD:Amba:Tritha:Female
+ADD_CHILD:Amba:Tritha:Male
+
+ADD_SPOUSE:Dritha:Jaya:Male
+ADD_CHILD:Dritha:Yodhan:Female
