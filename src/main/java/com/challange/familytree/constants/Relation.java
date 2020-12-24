@@ -5,21 +5,21 @@ package com.challange.familytree.constants;
  */
 public class Relation {
 
-	public static final String PATERNAL_UNCLE = "Paternal-Uncle";
+	public static final String PATERNAL_UNCLE = "PATERNAL-UNCLE";
 
-	public static final String MATERNAL_UNCLE = "Maternal-Uncle";
+	public static final String MATERNAL_UNCLE = "MATERNAL-UNCLE";
 
-	public static final String PATERNAL_AUNT = "Paternal-Aunt";
+	public static final String PATERNAL_AUNT = "PATERNAL-AUNT";
 
-	public static final String MATERNAL_AUNT = "Maternal-Aunt";
+	public static final String MATERNAL_AUNT = "MATERNAL-AUNT";
 
-	public static final String SISTER_IN_LAW = "Sister-In-Law";
+	public static final String SISTER_IN_LAW = "SISTER-IN-LAW";
 
-	public static final String BROTHER_IN_LAW = "Brother-In-Law";
+	public static final String BROTHER_IN_LAW = "BROTHER-IN-LAW";
 
-	public static final String SON = "Son";
+	public static final String SON = "SON";
 
-	public static final String DAUGHTER = "Daughter";
+	public static final String DAUGHTER = "DAUGHTER";
 
-	public static final String SIBLINGS = "Siblings";
+	public static final String SIBLINGS = "SIBLINGS";
 }

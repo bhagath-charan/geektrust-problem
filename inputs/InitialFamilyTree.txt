@@ -12,7 +12,14 @@ ADD_SPOUSE:Satya:Vyan:Male
 
 ADD_CHILD:Amba:Dritha:Female
 ADD_CHILD:Amba:Tritha:Female
-ADD_CHILD:Amba:Tritha:Male
+ADD_CHILD:Amba:Vritha:Male
 
 ADD_SPOUSE:Dritha:Jaya:Male
-ADD_CHILD:Dritha:Yodhan:Female
+ADD_CHILD:Dritha:Yodhan:Male
+
+GET_RELATIONSHIP:Dritha:Daughter
+GET_RELATIONSHIP:Ish:Siblings
+
+GET_RELATIONSHIP:Yodhan:Paternal-Uncle
+GET_RELATIONSHIP:Yodhan:Maternal-Uncle
+
