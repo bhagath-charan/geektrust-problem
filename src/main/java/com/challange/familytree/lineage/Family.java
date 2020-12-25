@@ -67,11 +67,21 @@ public class Family {
 			case Relation.MATERNAL_UNCLE:
 				return getMaternalUncle(personName);
 
+			case Relation.PATERNAL_AUNT:
+				return getPaternaAunt(personName);
+
+			case Relation.MATERNAL_AUNT:
+				return getMaternalAunt(personName);
+
+			case Relation.SISTER_IN_LAW:
+				return getSisterInLaws(personName);
+
+			case Relation.BROTHER_IN_LAW:
+				return getBrotherInLaws(personName);
+
 			default:
 				return Messages.NO_RELATION_FOUND;
-
 		}
-
 	}
 
 	public String getChildren(String personName, boolean isSon) {
@@ -125,4 +135,53 @@ public class Family {
 
 		return person.getMaternalUncle();
 	}
+
+	public String getPaternaAunt(String personName) {
+		if (personMap.isEmpty())
+			return Messages.PERSON_NOT_FOUND;
+
+		Person person = personMap.get(personName);
+
+		if (person == null)
+			return Messages.PERSON_NOT_FOUND;
+
+		return person.getPaternaAunt();
+	}
+
+	public String getMaternalAunt(String personName) {
+		if (personMap.isEmpty())
+			return Messages.PERSON_NOT_FOUND;
+
+		Person person = personMap.get(personName);
+
+		if (person == null)
+			return Messages.PERSON_NOT_FOUND;
+
+		return person.getMaternalAunt();
+	}
+
+	public String getSisterInLaws(String personName) {
+		if (personMap.isEmpty())
+			return Messages.PERSON_NOT_FOUND;
+
+		Person person = personMap.get(personName);
+
+		if (person == null)
+			return Messages.PERSON_NOT_FOUND;
+
+		return person.getSisterInLaws();
+	}
+
+	public String getBrotherInLaws(String personName) {
+		if (personMap.isEmpty())
+			return Messages.PERSON_NOT_FOUND;
+
+		Person person = personMap.get(personName);
+
+		if (person == null)
+			return Messages.PERSON_NOT_FOUND;
+
+		return person.getBrotherInLaws();
+	}
+
 }
