@@ -7,8 +7,6 @@ package com.challange.familytree.constants;
  */
 public final class Command {
 
-	public static final int UNIQUE_REQUESTS = 4;
-
 	public static final String ADD_FAMILY_HEAD = "ADD_FAMILY_HEAD";
 
 	public static final String ADD_CHILD = "ADD_CHILD";

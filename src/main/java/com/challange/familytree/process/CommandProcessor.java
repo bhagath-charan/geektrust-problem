@@ -9,7 +9,7 @@ import com.challange.familytree.lineage.Family;
 public class CommandProcessor {
 
 	public void processCommand(Family family, String[] commandParams,
-	                           boolean isBaseStUp) {
+	                           boolean isBaseSetUp) {
 		String message = null;
 		switch (commandParams[0]) {
 			case Command.ADD_FAMILY_HEAD:
@@ -30,7 +30,7 @@ public class CommandProcessor {
 				message = "INVALID INIT COMMAND!";
 				break;
 		}
-		if (!isBaseStUp && message != null)
+		if (!isBaseSetUp && message != null)
 			System.out.println(message);
 	}
 

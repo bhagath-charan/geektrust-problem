@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @author Bhagath Charan
  */
 public class Launcher {
+
 	public static void main(String[] args) {
 
 		Family family = new Family();
@@ -27,8 +28,10 @@ public class Launcher {
 
 	}
 
-	public static void processInitialTreeCommands(Family family, CommandProcessor commandProcessor) throws FileNotFoundException {
-		File inFile = new File(System.getProperty("user.dir") + "/inputs/InitialFamilyTree.txt");
+	public static void processInitialTreeCommands(Family family,
+	                                              CommandProcessor commandProcessor) throws FileNotFoundException {
+		File inFile = new File(System.getProperty("user.dir") + "/inputs" +
+				"/InitialFamilyTree.txt");
 		Scanner sc = new Scanner(inFile);
 
 		while (sc.hasNextLine()) {
