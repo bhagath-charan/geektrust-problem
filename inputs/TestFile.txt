@@ -1,0 +1,16 @@
+ADD_CHILD Satya Jhon male
+ADD_CHILD Satya Sansa Female
+
+GET_RELATIONSHIP Satya Son
+GET_RELATIONSHIP Satya DAUGHTER
+GET_RELATIONSHIP Jnki Siblings
+
+GET_RELATIONSHIP Asva maternal-uncle
+GET_RELATIONSHIP Vyas maternal-uncle
+
+GET_RELATIONSHIP Asva maternal-aunt
+GET_RELATIONSHIP Vyas maternal-aunt
+
+GET_RELATIONSHIP Kriya paternal-uncle
+
+

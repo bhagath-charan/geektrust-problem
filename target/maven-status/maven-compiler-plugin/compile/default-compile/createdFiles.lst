@@ -1,10 +1,9 @@
+com\challange\familytree\StringUtils.class
 com\challange\familytree\lineage\Person.class
-com\challange\familytree\Command.class
 com\challange\familytree\lineage\Family.class
-com\challange\familytree\CommandControl.class
+com\challange\familytree\process\CommandProcessor.class
 com\challange\familytree\constants\Gender.class
-com\challange\familytree\GPCustomeException.class
 com\challange\familytree\constants\Messages.class
+com\challange\familytree\constants\Command.class
 com\challange\familytree\Launcher.class
-com\challange\familytree\constants\Requests.class
-com\challange\familytree\invokers\CreateFamilyHead.class
+com\challange\familytree\constants\Relation.class

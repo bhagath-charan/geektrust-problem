@@ -5,7 +5,7 @@ import com.challange.familytree.process.CommandProcessor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.nio.file.Paths;
 
 /**
  * @author Bhagath Charan
@@ -15,11 +15,14 @@ public class Launcher {
 	public static void main(String[] args) {
 
 		Family family = new Family();
-		CommandProcessor commandProcessor = new CommandProcessor();
+
 		try {
-			processInitialTreeCommands(family, commandProcessor);
-		} catch (
-				ArrayIndexOutOfBoundsException aiobe) {
+
+
+			processFile(family, true,
+					Paths.get("inputs/InitialFamilyTree.txt").toAbsolutePath().toString());
+			processFile(family, false, args[0]);
+		} catch (ArrayIndexOutOfBoundsException aiobe) {
 			System.out.println("Please pass the File path as input");
 		} catch (
 				FileNotFoundException fnfe) {
@@ -28,26 +31,21 @@ public class Launcher {
 
 	}
 
-	public static void processInitialTreeCommands(Family family,
-	                                              CommandProcessor commandProcessor) throws FileNotFoundException {
-		File inFile = new File(System.getProperty("user.dir") + "/inputs" +
-				"/InitialFamilyTree.txt");
-		Scanner sc = new Scanner(inFile);
+	/**
+	 * To process the In file
+	 *
+	 * @param family        Initial Family Object to which all the operation are
+	 *                      performed
+	 * @param isBaseSetUp   to check if it is basic setup
+	 * @param inputFilePath File Path
+	 * @throws FileNotFoundException
+	 */
+	private static void processFile(Family family, boolean isBaseSetUp,
+	                                String inputFilePath) throws FileNotFoundException {
+		CommandProcessor commandProcessor = new CommandProcessor();
+		File inFile = new File(inputFilePath);
 
-		while (sc.hasNextLine()) {
-			String request = sc.nextLine();
-
-			if (!request.isEmpty()) {
-
-				request = request.replaceAll("\\s", " ");
-
-				System.out.println(request);
-
-				String[] commandParams = request.toUpperCase().split(":");
-
-				commandProcessor.processCommand(family, commandParams, false);
-
-			}
-		}
+		commandProcessor.processInput(family, inFile, isBaseSetUp);
 	}
+
 }

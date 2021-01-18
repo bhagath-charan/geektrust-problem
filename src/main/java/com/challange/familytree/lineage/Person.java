@@ -1,5 +1,6 @@
 package com.challange.familytree.lineage;
 
+import com.challange.familytree.StringUtils;
 import com.challange.familytree.constants.Gender;
 import com.challange.familytree.constants.Messages;
 
@@ -41,6 +42,16 @@ public class Person {
 		this.father = father;
 		this.mother = mother;
 		this.spouse = null;
+		this.children = new ArrayList<>();
+	}
+
+	public Person(String name, Gender gender, Person father, Person mother,
+	              Person spouse) {
+		this.name = name;
+		this.gender = gender;
+		this.father = father;
+		this.mother = mother;
+		this.spouse = spouse;
 		this.children = new ArrayList<>();
 	}
 
@@ -129,7 +140,11 @@ public class Person {
 		if (this.father.mother == null)
 			return Messages.NO_RELATION_FOUND;
 
-		return this.father.mother.getSons();
+		String names = this.father.mother.getSons().replace(this.father.name, "");
+
+		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1"
+		) :
+				Messages.NO_RELATION_FOUND;
 
 	}
 
@@ -141,7 +156,9 @@ public class Person {
 		if (this.mother.mother == null)
 			return Messages.NO_RELATION_FOUND;
 
-		return this.mother.mother.getSons();
+		String names = this.mother.mother.getSons().replace(this.mother.name, "");
+
+		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") : Messages.NO_RELATION_FOUND;
 	}
 
 	public String getPaternaAunt() {
@@ -152,7 +169,8 @@ public class Person {
 		if (this.father.mother == null)
 			return Messages.NO_RELATION_FOUND;
 
-		return this.father.mother.getDaughters();
+		String names = this.father.mother.getDaughters().replace(this.father.name, "");
+		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") : Messages.NO_RELATION_FOUND;
 	}
 
 	public String getMaternalAunt() {
@@ -163,7 +181,9 @@ public class Person {
 		if (this.mother.mother == null)
 			return Messages.NO_RELATION_FOUND;
 
-		return this.mother.mother.getDaughters();
+		String names = this.mother.mother.getDaughters().replace(this.mother.name, "");
+
+		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") : Messages.NO_RELATION_FOUND;
 	}
 
 	public String getSisterInLaws() {

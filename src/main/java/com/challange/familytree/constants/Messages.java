@@ -12,4 +12,6 @@ public class Messages {
 	public static final String CHILD_ADDITION_FAILED = "CHILD_ADDITION_FAILED";
 
 	public static final String NO_RELATION_FOUND = "NONE";
+
+	public static final String ADD_SPOUSE_FAILED = "SPOUSE_ADDITION_FAILED";
 }
