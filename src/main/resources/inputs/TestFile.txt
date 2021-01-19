@@ -13,4 +13,9 @@ GET_RELATIONSHIP Vyas maternal-aunt
 
 GET_RELATIONSHIP Kriya paternal-uncle
 
+GET_RELATIONSHIP Jnki Sister-in-law
+GET_RELATIONSHIP Vyas Sister-in-law
+GET_RELATIONSHIP Asva Sister-in-law
+GET_RELATIONSHIP Atya Sister-in-law
 
+GET_RELATIONSHIP Atya Siblings

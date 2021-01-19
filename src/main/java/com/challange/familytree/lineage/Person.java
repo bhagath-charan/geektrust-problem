@@ -128,6 +128,7 @@ public class Person {
 			return Messages.NO_RELATION_FOUND;
 
 		return this.mother.getChildren().stream()
+				.filter(child -> !child.name.equalsIgnoreCase(this.name))
 				.map(child -> child.name)
 				.collect(Collectors.joining(","));
 	}
@@ -158,7 +159,8 @@ public class Person {
 
 		String names = this.mother.mother.getSons().replace(this.mother.name, "");
 
-		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") : Messages.NO_RELATION_FOUND;
+		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") :
+				Messages.NO_RELATION_FOUND;
 	}
 
 	public String getPaternaAunt() {
@@ -170,7 +172,8 @@ public class Person {
 			return Messages.NO_RELATION_FOUND;
 
 		String names = this.father.mother.getDaughters().replace(this.father.name, "");
-		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") : Messages.NO_RELATION_FOUND;
+		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") :
+				Messages.NO_RELATION_FOUND;
 	}
 
 	public String getMaternalAunt() {
@@ -183,24 +186,23 @@ public class Person {
 
 		String names = this.mother.mother.getDaughters().replace(this.mother.name, "");
 
-		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") : Messages.NO_RELATION_FOUND;
+		return (!StringUtils.isNullOrEmpty(names)) ? names.replaceAll("(,)\\1+", "$1") :
+				Messages.NO_RELATION_FOUND;
 	}
 
 	public String getSisterInLaws() {
 
 		StringBuilder sisterInLaws = new StringBuilder();
 
-		if (this.spouse == null || this.spouse.mother == null)
-			return Messages.NO_RELATION_FOUND;
-
-		//Spouses sisters
-		String daughters = this.spouse.mother.getDaughters();
-
-		if (this.mother.getChildren().isEmpty())
+		String daughters = "";
+		if (this.spouse != null && this.spouse.mother != null) {
+			daughters = this.spouse.mother.getDaughters();
+		} else if (this.mother.getChildren().isEmpty())
 			return Messages.NO_RELATION_FOUND;
 
 		//Wives of Siblings
 		String siblingWives = this.mother.getChildren().stream()
+				.filter(child -> !child.name.equalsIgnoreCase(this.name))
 				.filter(child -> child.gender.equals(Gender.MALE))
 				.filter(child -> child.spouse != null)
 				.map(child -> child.spouse.name)
@@ -222,17 +224,15 @@ public class Person {
 
 		StringBuilder brotherInLaws = new StringBuilder();
 
-		if (this.spouse == null || this.spouse.mother == null)
-			return Messages.NO_RELATION_FOUND;
-
-		//Spouses brothers
-		String sons = this.spouse.mother.getSons();
-
-		if (this.mother.getChildren().isEmpty())
+		String sons = "";
+		if (this.spouse != null || this.spouse.mother != null)
+			sons = this.spouse.mother.getSons();
+		else if (this.mother.getChildren().isEmpty())
 			return Messages.NO_RELATION_FOUND;
 
 		//Husbands of Siblings
 		String siblingHusbands = this.mother.getChildren().stream()
+				.filter(child -> !child.name.equalsIgnoreCase(this.name))
 				.filter(child -> child.gender.equals(Gender.FEMALE))
 				.filter(child -> child.spouse != null)
 				.map(child -> child.spouse.name)
