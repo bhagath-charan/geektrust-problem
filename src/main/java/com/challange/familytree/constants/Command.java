@@ -14,4 +14,6 @@ public final class Command {
 	public static final String GET_RELATIONSHIP = "GET_RELATIONSHIP";
 
 	public static final String ADD_SPOUSE = "ADD_SPOUSE";
+
+	public static final int MIN_COMMAND_ARGS = 4;
 }

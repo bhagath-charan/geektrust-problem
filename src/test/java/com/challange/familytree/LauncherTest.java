@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
+import java.io.InputStream;
 
 /**
  * Unit test for simple Launcher.
@@ -30,9 +30,13 @@ public class LauncherTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws FileNotFoundException {
 		family = new Family();
-		File inFile = new File(Paths.get("inputs/InitialFamilyTree.txt").toAbsolutePath().toString());
+		File inFile = new File("/InitialFamilyTree.txt");
+		ClassLoader classLoader = Launcher.class.getClassLoader();
+		InputStream inputStream = classLoader.getResourceAsStream("inputs/InitialFamilyTree.txt" +
+				".txt");
+
 		CommandProcessor commandProcessor = new CommandProcessor();
-		commandProcessor.processInput(family, inFile, true);
+		commandProcessor.processBaseFile(family, inputStream);
 	}
 
 
